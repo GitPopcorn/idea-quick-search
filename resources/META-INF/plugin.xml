@@ -1,0 +1,42 @@
+<idea-plugin>
+	
+	<id>top.nobodycares.quicksearch</id>
+	<name>Quick Search</name>
+	<version>1.0</version>
+	<vendor email="qq370921291@outlook.com" url="https://nobodycares.top">Nobody Cares</vendor>
+	<description>A plugin to simulate the Qucik Search function of Eclipse</description>
+	<change-notes>0.0.1 SNAPSHOT</change-notes>
+	
+	<!-- Please see https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html for description -->
+	<idea-version since-build="173.0"/>
+	
+	<!-- Please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+		 on how to target different products -->
+	<depends>com.intellij.modules.platform</depends>
+	
+	<extensions defaultExtensionNs="com.intellij">
+		<!-- Add your extensions here -->
+	</extensions>
+	
+	<actions>
+		<!-- NextOccurrenceOfSelection -->
+		<action id="NextOccurrenceOfSelection"
+				class="top.nobodycares.quicksearch.action.NextOccurrenceOfSelection"
+				text="Next Occurrence of Selection"
+				description="Find and move cursor to next occurrence of selection (wrapped)."
+		>
+			<add-to-group group-id="FindMenuGroup" anchor="after" relative-to-action="FindWordAtCaret"/>
+			<keyboard-shortcut keymap="$default" first-keystroke="ctrl K"/>
+		</action>
+		<!-- PreviousOccurrenceOfSelection -->
+		<action id="PreviousOccurrenceOfSelection"
+				class="top.nobodycares.quicksearch.action.PreviousOccurrenceOfSelection"
+				text="Previous Occurrence of Selection"
+				description="Find and move cursor to previous occurrence of selection (wrapped)."
+		>
+			<add-to-group group-id="FindMenuGroup" anchor="after" relative-to-action="NextOccurrenceOfSelection"/>
+			<keyboard-shortcut keymap="$default" first-keystroke="shift ctrl K"/>
+		</action>
+	</actions>
+	
+</idea-plugin>
