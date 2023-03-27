@@ -15,6 +15,7 @@ import top.nobodycares.quicksearch.utils.StringUtils;
  * @description description
  * @note note
  */
+@SuppressWarnings("MissingActionUpdateThread")
 public class NextOccurrenceOfSelection extends AnAction {
 	
 	// ===== ===== ===== ===== [Operation Methods] ===== ===== ===== ===== //
