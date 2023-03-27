@@ -21,10 +21,11 @@ public class PreviousOccurrenceOfSelection extends AnAction {
 	
 	@Override
 	public void actionPerformed(AnActionEvent e) {
-		// STEP Number Get editor, caret, selection, selected text and verify
+		// STEP Number Get editor, caret, selection, folding block, selected text and verify
 		final Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
 		CaretModel caretModel = editor.getCaretModel();
 		SelectionModel selectionModel = editor.getSelectionModel();
+		// FoldingModel foldingModel = editor.getFoldingModel();
 		String selectedText = selectionModel.getSelectedText();
 		if (StringUtils.isEmpty(selectedText)) {
 			return;
@@ -58,10 +59,17 @@ public class PreviousOccurrenceOfSelection extends AnAction {
 			
 		}
 		
-		// STEP Number Change caret and selection to target position if found
+		// STEP Number Calculate the new end offset
 		int endOffset = occur + selectedText.length();
-		selectionModel.setSelection(occur, endOffset);
+		
+		// STEP Number Determine if there is any folded blocks cross the new occurrence, if is, expand them
+		// NOTE Number The editor will expand the folded blocks automatically when the caret is moved to them, so this step is not needed
+		// EditorUtils.expandAllFoldedRegionsCrossedByRange(foldingModel, occur, endOffset);
+		
+		// STEP Number Change caret and selection to target position if found
+		// NOTE Number Move caret before setting selection, or the folded blocks at new caret position will not expand normally
 		caretModel.moveToOffset(endOffset);
+		selectionModel.setSelection(occur, endOffset);
 		
 		// STEP Number Scroll the visual area to new logical area
 		editor.getScrollingModel().scrollToCaret(ScrollType.MAKE_VISIBLE);
