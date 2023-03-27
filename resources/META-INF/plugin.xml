@@ -2,10 +2,17 @@
 	
 	<id>top.nobodycares.quicksearch</id>
 	<name>Quick Search</name>
-	<version>1.0</version>
+	<version>1.1</version>
 	<vendor email="qq370921291@outlook.com" url="https://nobodycares.top">Nobody Cares</vendor>
-	<description>A plugin to simulate the Qucik Search function of Eclipse</description>
-	<change-notes>0.0.1 SNAPSHOT</change-notes>
+	<description>A plugin to simulate the Quick Search function of Eclipse</description>
+	<change-notes>
+		## 1.1
+		- Fix the problem that folded block will not expand automatically when jump at.
+		- Fix the spell error in the description.
+		
+		## 1.0
+		- Initial release
+	</change-notes>
 	
 	<!-- Please see https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html for description -->
 	<idea-version since-build="173.0"/>
