@@ -4,14 +4,37 @@
 	<name>Quick Search</name>
 	<version>1.1</version>
 	<vendor email="qq370921291@outlook.com" url="https://nobodycares.top">Nobody Cares</vendor>
-	<description>A plugin to simulate the Quick Search function of Eclipse</description>
+	<description>
+	<![CDATA[
+		<h3>Quick Search</h3>
+		<ul>
+			<li>
+				<p>A plugin to simulate the Quick Search function of Eclipse.</p>
+			</li>
+			<li>
+				<p>Aim to simulate the function <code>Quick Search</code> of Eclipse, and enhance the existing function Next
+					Occurrence of the Word at Caret.</p>
+				<ul>
+					<li>Use <code>Edit -&gt; Find -&gt; Next Occurrence of Selection</code> or <code>Ctrl + K</code> to find next occurrence of the current selection and jump to it. If not found, do it wrapped.</li>
+					<li>Use <code>Edit -&gt; Find -&gt; Previous Occurrence of Selection</code> or <code>Ctrl + Shift + K</code> to find previous occurrence of the current selection and jump to it. If not found, do it wrapped.</li>
+					<li>No pollution to the native searching history of IDEA.</li>
+				</ul>
+			</li>
+		</ul>
+	]]>
+	</description>
 	<change-notes>
-		## 1.1
-		- Fix the problem that folded block will not expand automatically when jump at.
-		- Fix the spell error in the description.
-		
-		## 1.0
-		- Initial release
+	<![CDATA[
+		<h2>1.1 - 2023-03-27</h2>
+		<ul>
+			<li>Fix the problem that folded block will not expand automatically when jump at.</li>
+			<li>Fix the spell error in the description.</li>
+		</ul>
+		<h2>1.0 - 2021-11-12</h2>
+		<ul>
+			<li>Initial release</li>
+		</ul>
+	]]>
 	</change-notes>
 	
 	<!-- Please see https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html for description -->
