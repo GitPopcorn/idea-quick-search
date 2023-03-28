@@ -2,7 +2,7 @@
 	
 	<id>top.nobodycares.quicksearch</id>
 	<name>Quick Search</name>
-	<version>1.1</version>
+	<version>1.1.0</version>
 	<vendor email="qq370921291@outlook.com">Nobody Cares</vendor>
 	<description>
 	<![CDATA[
@@ -25,12 +25,12 @@
 	</description>
 	<change-notes>
 	<![CDATA[
-		<h2>1.1 - 2023-03-27</h2>
+		<h2>1.1.0 - 2023-03-27</h2>
 		<ul>
 			<li>Fix the problem that folded block will not expand automatically when jump at.</li>
 			<li>Fix the spell error in the description.</li>
 		</ul>
-		<h2>1.0 - 2021-11-12</h2>
+		<h2>1.0.0 - 2021-11-12</h2>
 		<ul>
 			<li>Initial release</li>
 		</ul>
