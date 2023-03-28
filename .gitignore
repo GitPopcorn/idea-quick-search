@@ -78,4 +78,4 @@ mvnw.cmd
 
 # IDEA Platform Development Related
 out
-# /*.jar
+/*.jar
