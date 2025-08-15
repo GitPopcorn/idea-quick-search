@@ -2,7 +2,7 @@
 	
 	<id>top.nobodycares.quicksearch</id>
 	<name>Quick Search</name>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<vendor email="qq370921291@outlook.com" url="">Nobody Cares</vendor>
 	<description>
 	<![CDATA[
@@ -25,6 +25,10 @@
 	</description>
 	<change-notes>
 	<![CDATA[
+		<h2>1.2.0 - 2025-08-15</h2>
+		<ul>
+			<li>Replace the will-be-removed API [AnActionEvent#getRequiredData(DataKey)].</li>
+		</ul>
 		<h2>1.1.0 - 2023-03-27</h2>
 		<ul>
 			<li>Fix the problem that folded block will not expand automatically when jump at.</li>
