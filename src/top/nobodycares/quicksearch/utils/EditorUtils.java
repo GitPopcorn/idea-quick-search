@@ -1,15 +1,45 @@
 package top.nobodycares.quicksearch.utils;
 
+import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.DataKey;
 import com.intellij.openapi.editor.FoldRegion;
 import com.intellij.openapi.editor.FoldingModel;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Editor Utilities
  * @author ZhouYi
- * @date 2023/3/27 17:04
+ * @date 2023/03/27 17:04
  * @note note
  */
 public class EditorUtils {
+	
+	// ===== ===== ===== ===== [Static Utility Methods-Basic Editor Opeartion] ===== ===== ===== ===== //
+	
+	/**
+	 * Get and check required data from {@link AnActionEvent}, never return null
+	 * @reference AnActionEvent#getRequiredData(DataKey) in [IntelliJ IDEA IU-252.23892.409] 
+	 * @throws AssertionError if data is missing
+	 * @param event Event object
+	 * @param key The data key for the data to be retrieved
+	 * @return {@code @NotNull T} The data retrieved from the event, never null
+	 * @author ZhouYi
+	 * @date 2025/08/15 12:38
+	 * @note This method is copied from AnActionEvent#getRequiredData(DataKey) in [IntelliJ IDEA IU-252.23892.409].
+	 *       As the original method will be removed in future versions, this method is provided to ensure compatibility.
+	 * @note note
+	 */
+	public static <T> @NotNull T getRequiredData(@NotNull AnActionEvent event, @NotNull DataKey<T> key) {
+		T data = event.getData(key);
+		if (data == null) {
+			throw new AssertionError(key.getName() + " is missing");
+			
+		} else {
+			return data;
+			
+		}
+		
+	}
 	
 	// ===== ===== ===== ===== [Static Utility Methods-Expand Folded Region] ===== ===== ===== ===== //
 	
@@ -20,7 +50,7 @@ public class EditorUtils {
 	 * @param rangeEnd The end offset of range
 	 * @return {@code void}
 	 * @author ZhouYi
-	 * @date 2023/3/27 17:07
+	 * @date 2023/03/27 17:07
 	 * @note note
 	 */
 	public static void expandAllFoldedRegionsCrossedByRange(FoldingModel foldingModel, int rangeStart, int rangeEnd) {
@@ -38,7 +68,7 @@ public class EditorUtils {
 	 * @param positions the positions to check
 	 * @return {@code void}
 	 * @author ZhouYi
-	 * @date 2023/3/27 17:15
+	 * @date 2023/03/27 17:15
 	 * @note note
 	 */
 	public static void expandCollapsedRegionsAtOffsets(FoldingModel foldingModel, int... positions) {
@@ -57,7 +87,7 @@ public class EditorUtils {
 	 * @param rangeEnd The end offset of range
 	 * @return {@code void}
 	 * @author ZhouYi
-	 * @date 2023/3/27 17:15
+	 * @date 2023/03/27 17:15
 	 * @note note
 	 */
 	public static void expandAllCollapsedRegionsCrossRange(FoldingModel foldingModel, int rangeStart, int rangeEnd) {
@@ -82,7 +112,7 @@ public class EditorUtils {
 	 * @param end2 the end offset of range 2
 	 * @return {@code boolean} true if range 1 is crossed by range 2, otherwise false
 	 * @author ZhouYi
-	 * @date 2023/3/27 17:12
+	 * @date 2023/03/27 17:12
 	 * @note note
 	 */
 	public static boolean isRangeCrossed(int start1, int end1, int start2, int end2) {

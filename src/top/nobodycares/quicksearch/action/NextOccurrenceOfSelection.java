@@ -6,6 +6,7 @@ import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.editor.*;
 import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.NotNull;
+import top.nobodycares.quicksearch.utils.EditorUtils;
 import top.nobodycares.quicksearch.utils.StringUtils;
 
 /**
@@ -21,9 +22,13 @@ public class NextOccurrenceOfSelection extends AnAction {
 	// ===== ===== ===== ===== [Operation Methods] ===== ===== ===== ===== //
 	
 	@Override
-	public void actionPerformed(AnActionEvent e) {
+	public void actionPerformed(@NotNull AnActionEvent e) {
 		// STEP Number Get editor, caret, selection, folding block, selected text and verify
-		final Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
+		
+		// CHANGED 2025/08/15 12:41 BY.ZhouYi Replace the will-be-removed API [AnActionEvent#getRequiredData(DataKey)]
+		// final Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
+		final Editor editor = EditorUtils.getRequiredData(e, CommonDataKeys.EDITOR);
+		
 		CaretModel caretModel = editor.getCaretModel();
 		SelectionModel selectionModel = editor.getSelectionModel();
 		// FoldingModel foldingModel = editor.getFoldingModel();
